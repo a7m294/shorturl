@@ -1,5 +1,8 @@
 # shorturl
-짧은 url 생성 테스트, phpstrom + git 테스트용이기 때문에 모듈화는 차후 
+짧은 url 생성 테스트,
+phpstrom + git 테스트용이기 때문에 모듈화는 차후
+
+현재진행형 작업완료는 26일예정
 
 ## 서버환경
 #### php
@@ -26,6 +29,8 @@ location / {
 }
 ```
 
+#### demo
+http://www.goddess9.com/
 
 ## License
 MIT license
