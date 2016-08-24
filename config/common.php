@@ -3,18 +3,25 @@
  * Created by PhpStorm.
  * User: magi
  * Date: 2016-08-23
+ * 공통호출파일
  */
 
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('scream.enabled', true);
 
-defined('P_DOMAIN') or define('P_DOMAIN', 'http://www.goddess9.com');
-defined('MYSQL_USER') or define('MYSQL_USER', 'magi_user');
-defined('MYSQL_PASS') or define('MYSQL_PASS', 'dhsmfehantkgl^^');
-defined('MYSQL_DB') or define('MYSQL_DB', 'magi_db_test');
-defined('MYSQL_HOST') or define('MYSQL_HOST', 'localhost');
+//공통설정
+defined('P_DOMAIN') or define('P_DOMAIN', 'http://' . $_SERVER['HTTP_HOST']);
+defined('P_DOCUMENT_ROOT') or define('P_DOCUMENT_ROOT', $_SERVER['DOCUMENT_ROOT'] . '/..');
+defined('P_MYSQL_USER') or define('P_MYSQL_USER', 'magi_user');
+defined('P_MYSQL_PASS') or define('P_MYSQL_PASS', 'dhsmfehantkgl^^');
+defined('P_MYSQL_DB') or define('P_MYSQL_DB', 'magi_db_test');
+defined('P_MYSQL_HOST') or define('P_MYSQL_HOST', 'localhost');
 
+//공통호출
+include P_DOCUMENT_ROOT . '/config/shorturl.php';
+
+//공통변수
 $get = array();
 if( !empty($_GET)) {
     $get = array_trim($_GET);
@@ -24,7 +31,7 @@ if( !empty($_POST)) {
     $post = array_trim($_POST);
 }
 
-
+//공통함수
 /**
  * 배열의 모든 vales 를 trim 처리
  * @param array $arr
@@ -45,3 +52,8 @@ function array_trim($arr=array())
     return $return;
 }
 
+function print_r2($arr) {
+    echo '<pre>';
+    print_r($arr);
+    echo '</pre>';
+}

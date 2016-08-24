@@ -5,3 +5,10 @@ body {
     padding: 40px 15px;
     text-align: center;
 }
+.contents {
+    padding: 40px 15px;
+    text-align: center;
+}
+.contents {
+    border: 1px solid red;
+}

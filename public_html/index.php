@@ -45,26 +45,26 @@
         <h1>Short Url Test</h1>
     </div>
 
-    <div class="span12">
-        <form class="form-inline">
-            <div class="form-group">
-                <label class="sr-only">request url</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="request_url" placeholder="google.co.kr">
+    <div class="contents col-md-12">
+        <div class="row">
+            <form class="form-inline">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="request_url" placeholder="https://google.co.kr">
+                    </div>
                 </div>
-            </div>
-            <button type="button" class="btn btn-primary" id="bnt_request_url">request url</button>
-        </form>
-    </div>
-    <div class="span12">
-        <form class="form-inline">
-            <div class="form-group">
-                <label class="sr-only">request url</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="respone_url">
+                <button type="button" class="btn btn-primary" id="bnt_request_url">request url</button>
+            </form>
+        </div>
+        <div class="row">
+            <form class="form-inline">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="respone_url">
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div><!-- /.container -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
