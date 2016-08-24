@@ -4,8 +4,8 @@ $('#bnt_request_url').on('click', function(){
     if( url.length  < 1) {
         return false;
     }
-    alert(url);
-    alert(pre_url);
+    //alert(url);
+    //alert(pre_url);
     if( pre_url  === url) {
         return false;
     }

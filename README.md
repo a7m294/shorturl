@@ -14,6 +14,8 @@ PHP 5.6.24 (cli)
 10.1.16-MariaDB
 ```
 ```sql
+CREATE TABLE IF NOT EXISTS `ma_short_url` ();
+CREATE TABLE IF NOT EXISTS `ma_short_url_log` ();
 ```
 #### nginx rewrite
 ```

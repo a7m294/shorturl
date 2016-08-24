@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>short url example</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -47,23 +47,15 @@
 
     <div class="contents col-md-12">
         <div class="row">
-            <form class="form-inline">
-                <div class="form-group">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="request_url" placeholder="https://google.co.kr">
-                    </div>
-                </div>
-                <button type="button" class="btn btn-primary" id="bnt_request_url">request url</button>
-            </form>
+            <div class="form-group col-lg-6 div1">
+                <input type="text" class="form-control input1" id="request_url" placeholder="https://google.co.kr">
+            </div>
+            <button type="button" class="btn btn-primary btn1" id="bnt_request_url">request url</button>
         </div>
         <div class="row">
-            <form class="form-inline">
-                <div class="form-group">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="respone_url">
-                    </div>
-                </div>
-            </form>
+            <div class="form-group col-lg-6">
+                <input type="text" class="form-control" id="respone_url">
+            </div>
         </div>
     </div>
 </div><!-- /.container -->

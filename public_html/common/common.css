@@ -10,5 +10,24 @@ body {
     text-align: center;
 }
 .contents {
-    border: 1px solid red;
+    /* border: 1px solid red; */
+}
+.contents .row {
+    text-align: center;
+    /* border: 1px solid red; */
+}
+
+.contents .div1 {
+    margin-right: 90px;
+}
+.contents .input1 {
+    position: relative;
+}
+.contents .btn1 {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.contents .box2 {
+    margin-right: 90px;
 }
