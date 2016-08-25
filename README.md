@@ -1,6 +1,6 @@
-# shorturl
+# php shorturl
 짧은 url 생성 테스트,
-phpstrom + git 테스트용이기 때문에 모듈화는 차후
+git 연습용으로 개발
 
 ## 서버환경
 #### server
@@ -19,6 +19,11 @@ CREATE TABLE IF NOT EXISTS `ma_short_url` (
 CREATE TABLE IF NOT EXISTS `ma_short_url_log` (
   ......
 );
+# select log
+select u.*, l.* 
+from ma_short_url_log as l
+inner join ma_short_url as u on l.su_idx = u.idx
+where l.su_idx_hash = '2a';
 ```
 
 #### nginx rewrite
@@ -37,7 +42,7 @@ location / {
 http://www.goddess9.com/
 
 ## License
-MIT license
+[MIT License](https://opensource.org/licenses/MIT).
 
 ## 연습시 참고사항
 github markdown languages.yml
