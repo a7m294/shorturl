@@ -24,3 +24,4 @@ CREATE TABLE IF NOT EXISTS `ma_short_url_log` (
   KEY `ik_su_idx`(`su_idx`),
   KEY `ik_su_idx_hash`(`su_idx_hash`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='2016-08-24 짧은 url 클릭시 로그';
+
