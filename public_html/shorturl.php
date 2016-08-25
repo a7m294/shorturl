@@ -41,8 +41,3 @@ try {
     header("HTTP/1.1 302 Moved Temporarily");
     Header("Location: " . $message);
 }
-
-
-
-
-

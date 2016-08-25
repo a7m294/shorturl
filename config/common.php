@@ -6,9 +6,9 @@
  * 공통호출파일
  */
 
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 1);
-ini_set('scream.enabled', true);
+//ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 0);
+//ini_set('scream.enabled', true);
 
 //공통설정
 defined('P_DOMAIN') or define('P_DOMAIN', 'http://' . $_SERVER['HTTP_HOST']);

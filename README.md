@@ -1,6 +1,5 @@
 # php shorturl
-짧은 url 생성 테스트,
-git 연습용으로 개발
+짧은 url 생성 테스트, git 연습용으로 개발
 
 ## 서버환경
 #### server
