@@ -1,3 +1,6 @@
+/**
+ * 경식이 경식이 고맙/
+ */
 body {
     padding-top: 50px;
 }
@@ -13,12 +16,13 @@ body {
     /* border: 1px solid red; */
 }
 .contents .row {
+    position:relative;
     text-align: center;
     /* border: 1px solid red; */
 }
 
 .contents .div1 {
-    margin-right: 90px;
+    margin-right: 100px;
 }
 .contents .input1 {
     position: relative;
@@ -29,5 +33,6 @@ body {
     top: 0;
 }
 .contents .box2 {
-    margin-right: 90px;
+    margin-right: 100px;
 }
+

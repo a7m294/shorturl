@@ -2,25 +2,25 @@
 짧은 url 생성 테스트,
 phpstrom + git 테스트용이기 때문에 모듈화는 차후
 
-현재진행형 작업완료는 26일예정
-
 ## 서버환경
+#### server
+> CentOS release 6.8 (Final)
+
 #### php
-```
-PHP 5.6.24 (cli)
-```
+> PHP 5.6.24 (cli)
 #### mysql
-```
-10.1.16-MariaDB
-```
+> 10.1.16-MariaDB
 ```sql
-CREATE TABLE IF NOT EXISTS `ma_short_url` ();
-CREATE TABLE IF NOT EXISTS `ma_short_url_log` ();
+# mysql.sql 참고
+CREATE TABLE IF NOT EXISTS `ma_short_url` (
+  ......
+);
+CREATE TABLE IF NOT EXISTS `ma_short_url_log` (
+  ......
+);
 ```
 #### nginx rewrite
-```
-nginx/1.10.1
-```
+> nginx/1.10.1
 ```nginxconf
 root   /home/[your user]/[project name]/shorturl/public_html;
 

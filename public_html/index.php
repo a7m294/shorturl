@@ -30,7 +30,6 @@
 </head>
 <body>
 
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -45,15 +44,15 @@
         <h1>Short Url Test</h1>
     </div>
 
-    <div class="contents col-md-12">
+    <div class="contents">
         <div class="row">
-            <div class="form-group col-lg-6 div1">
+            <div class="form-group div1">
                 <input type="text" class="form-control input1" id="request_url" placeholder="https://google.co.kr">
             </div>
             <button type="button" class="btn btn-primary btn1" id="bnt_request_url">request url</button>
         </div>
         <div class="row">
-            <div class="form-group col-lg-6">
+            <div class="form-group">
                 <input type="text" class="form-control" id="respone_url">
             </div>
         </div>
