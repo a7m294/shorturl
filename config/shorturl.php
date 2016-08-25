@@ -4,6 +4,7 @@
  * Created by PhpStorm.
  * User: magi
  * Date: 2016-08-23
+ * short url 관리
  */
 class shorturl
 {
@@ -28,10 +29,10 @@ class shorturl
      */
     function __construct()
     {
+        // 시작시 디비 연결
         try {
             $this->dbconn = new PDO('mysql:host=' . P_MYSQL_HOST . ';dbname=' . P_MYSQL_DB, P_MYSQL_USER, P_MYSQL_PASS);
         } catch (PDOException $e) {
-            print_r2($e->getMessage());
             $this->_set_message([
                 'code'=>50001,
                 'message'=>'[mysql]' . $e->getCode() . ':' . $e->getMessage(),
@@ -105,6 +106,12 @@ class shorturl
 
         return $returnurl;
     }
+
+    /**
+     * 원본 url 을 리턴
+     * @param $url_hash
+     * @return bool|string
+     */
     public function do_go($url_hash) {
         if( isset($this->error['code']) && $this->error['code'] > 0) {
             return false;
@@ -112,8 +119,8 @@ class shorturl
 
         $arr = parse_url($url_hash);
         parse_str($arr['path'], $tmp);
-        $tmp = substr($arr['path'], 1);
-        $idx = $this->base62_decode($tmp);
+        $url_hash_o = substr($arr['path'], 1);
+        $idx = $this->base62_decode($url_hash_o);
 
         $sql = 'SELECT `url` FROM `ma_short_url` WHERE `idx` = :IDX';
         $sth = $this->dbconn->prepare($sql);
@@ -128,8 +135,62 @@ class shorturl
             return false;
         }
         $row = $sth->fetch(PDO::FETCH_ASSOC);
+        if( isset($row['url'])) {
+            $this->_do_log($idx, $url_hash_o);
+        }
         return $row['url'];
     }
+
+    /**
+     * short url 로 이동시 자동으로 기록
+     * @param $idx
+     * @param $url_hash
+     * @return bool
+     */
+    protected function _do_log($idx, $url_hash) {
+        if( isset($this->error['code']) && $this->error['code'] > 0) {
+            return false;
+        }
+        if( empty($idx) || !is_numeric($idx)) {
+            return false;
+        }
+        if( empty($_SERVER['HTTP_REFERER'])) $_SERVER['HTTP_REFERER'] = '';
+
+        $sql = 'insert into ma_short_url_log (su_idx, su_idx_hash, ip, referer) VALUES (:IDX, :HASH, :IP, :REFERER)';
+        $sth = $this->dbconn->prepare($sql);
+        $sth->bindParam(':IDX', $idx, PDO::PARAM_INT);
+        $sth->bindParam(':HASH', $url_hash, PDO::PARAM_STR);
+        $sth->bindParam(':IP', $_SERVER['REMOTE_ADDR'], PDO::PARAM_STR);
+        $sth->bindParam(':REFERER', $_SERVER['HTTP_REFERER'], PDO::PARAM_STR);
+        $sth->execute();
+        $arr = $sth->errorInfo();
+        if( isset($arr[1])) {
+            $this->_set_message([
+                'code'=>5013,
+                'message'=>'[mysql]' . $arr[1] . ':' . $arr[2],
+            ]);
+        }
+    }
+    /**
+     * 에러 저장
+     * @param array $arr
+     */
+    protected function _set_message($arr=[]) {
+        $this->error = [
+            'code'=>$arr['code'],
+            'message'=>$arr['message'],
+        ];
+    }
+
+    /**
+     * 에러 리턴
+     * @return array
+     */
+    public function error() {
+        return $this->error;
+    }
+    
+    
     /**
      * http://www.phpschool.com/gnuboard4/bbs/board.php?bo_table=tipntech&wr_id=79695
      * @param $val
@@ -163,14 +224,5 @@ class shorturl
             $val += $arr[$str[$i]] * pow($base, $len-$i-1);
         }
         return $val;
-    }
-    private function _set_message($arr=[]) {
-        $this->error = [
-            'code'=>$arr['code'],
-            'message'=>$arr['message'],
-        ];
-    }
-    public function error() {
-        return $this->error;
     }
 }
